@@ -4,47 +4,142 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CARDTAIWAN｜LINE 電子名片</title>
-<meta name="description" content="幫台灣的頭家做一張會自己轉發的 LINE 電子名片。客戶收到的是卡片，不是連結。">
+<meta name="description" content="幫台灣的頭家做一張會自己轉發的 LINE 電子名片。客戶收到的是卡片，不是連結。可滑動、一鍵轉發、看得到誰點過。">
 <meta property="og:title" content="CARDTAIWAN｜LINE 電子名片">
-<meta property="og:description" content="客戶收到的是卡片，不是連結。點一下就能存進手機、加 LINE、看作品。">
+<meta property="og:description" content="客戶收到的是卡片，不是連結。可滑動、一鍵轉發、看得到誰點過。">
 <meta property="og:type" content="website">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{min-height:100vh;background:linear-gradient(165deg,#0e1a2b,#1d3a5c 55%,#2a4670);
        color:#eef2f7;font-family:-apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;
-       display:flex;align-items:center;justify-content:center;padding:32px 22px}
-  .wrap{max-width:560px;width:100%}
-  .brand{font-size:15px;letter-spacing:.34em;color:#dfa77c;font-weight:700}
+       padding:52px 22px 64px;line-height:1.7}
+  .wrap{max-width:640px;margin:0 auto}
+  .brand{font-size:14px;letter-spacing:.34em;color:#dfa77c;font-weight:700}
   .rule{width:88px;height:3px;background:#c4835a;margin:16px 0 34px;border-radius:2px}
-  h1{font-size:34px;line-height:1.42;font-weight:800;letter-spacing:.01em}
+  h1{font-size:33px;line-height:1.45;font-weight:800;letter-spacing:.01em}
   h1 em{color:#dfa77c;font-style:normal}
   p.lead{margin-top:22px;font-size:16px;line-height:1.95;color:#b9c6d6}
-  .list{margin-top:30px;border-top:1px solid rgba(223,167,124,.28);padding-top:22px}
-  .list div{font-size:15px;line-height:2.05;color:#cbd6e3}
-  .list b{color:#eef2f7;font-weight:600}
-  .foot{margin-top:36px;font-size:13.5px;color:#8b9aab;line-height:1.9}
+  h2{margin:52px 0 18px;font-size:19px;font-weight:700;color:#eef2f7;
+     padding-left:13px;border-left:3px solid #c4835a;letter-spacing:.02em}
+  .feat{display:grid;gap:12px}
+  .feat div{font-size:15px;line-height:1.85;color:#cbd6e3;
+            background:rgba(255,255,255,.045);border:1px solid rgba(223,167,124,.20);
+            border-radius:11px;padding:14px 17px}
+  .feat b{color:#eef2f7;font-weight:700;display:block;margin-bottom:3px}
+  .tier{display:grid;gap:13px}
+  .tier .card{border:1px solid rgba(223,167,124,.26);border-radius:13px;padding:18px 19px;
+              background:rgba(255,255,255,.04)}
+  .tier .card.hot{border-color:#c4835a;background:rgba(196,131,90,.10)}
+  .tier .tag{font-size:12px;letter-spacing:.16em;color:#dfa77c;font-weight:700}
+  .tier h3{margin:7px 0 9px;font-size:20px;font-weight:800;color:#fff}
+  .tier .one{font-size:15.5px;color:#dfa77c;font-weight:600;margin-bottom:11px}
+  .tier ul{list-style:none;font-size:14.5px;color:#c3cfdd}
+  .tier li{padding:3.5px 0 3.5px 19px;position:relative}
+  .tier li:before{content:"—";position:absolute;left:0;color:#8b9aab}
+  .tier .price{margin-top:14px;padding-top:13px;border-top:1px solid rgba(223,167,124,.22);
+               font-size:15px;color:#eef2f7;font-weight:700}
+  .tier .price span{font-size:13px;color:#8b9aab;font-weight:400}
+  .who{font-size:15px;line-height:2.1;color:#cbd6e3}
+  .who b{color:#eef2f7}
+  .cta{margin-top:46px;padding:24px;border-radius:14px;text-align:center;
+       background:linear-gradient(135deg,rgba(196,131,90,.20),rgba(223,167,124,.10));
+       border:1px solid rgba(223,167,124,.34)}
+  .cta p{font-size:16px;color:#eef2f7;font-weight:600}
+  .cta a{display:inline-block;margin-top:15px;padding:13px 30px;border-radius:999px;
+         background:#c4835a;color:#fff;text-decoration:none;font-weight:700;font-size:15.5px}
+  .foot{margin-top:42px;font-size:13.5px;color:#8b9aab;line-height:2}
   .foot a{color:#dfa77c;text-decoration:none}
+  .note{margin-top:26px;font-size:13px;color:#7d8b9c;line-height:1.9}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="brand">CARDTAIWAN</div>
   <div class="rule"></div>
+
   <h1>幫台灣的頭家<br>做一張<em>會自己轉發</em>的名片</h1>
   <p class="lead">
     客戶收到的是卡片，不是一條連結。<br>
     點一下就能存進手機、加你的 LINE、看你的作品 ——
     而且他能自己轉給需要的人。
   </p>
-  <div class="list">
-    <div><b>會滑的卡片</b>　在 LINE 聊天室裡就能左右滑，不用開網頁</div>
-    <div><b>一鍵轉發</b>　客戶幫你發，比你發得快</div>
-    <div><b>看得到成效</b>　有幾個人打開過、哪顆按鈕最多人按</div>
-    <div><b>適合</b>　房仲・業務・工程行・設計師・店家</div>
+
+  <h2>這是什麼</h2>
+  <div class="feat">
+    <div><b>一張在 LINE 聊天室裡就能左右滑的卡片</b>不用開網頁、不用下載 App。客戶滑完六張卡，就知道你是誰、做什麼、怎麼找你。</div>
+    <div><b>一鍵轉發，客戶幫你發</b>收到的人按一下就能轉給下一個需要的人 —— 比你一個一個發快得多。</div>
+    <div><b>點卡片就開你的專屬網站</b>服務項目、服務區域、作品照片、聯絡方式，全部在一頁裡。</div>
+    <div><b>看得到成效</b>有幾個人打開過、哪一顆按鈕最多人按、誰回來看過第二次。</div>
   </div>
+
+  <h2>服務項目</h2>
+  <div class="feat">
+    <div><b>名片設計與建置</b>依你的行業與品牌配色製作專屬卡片，含形象照處理、文案整理。</div>
+    <div><b>專屬網址網站</b>給你一組只有你在用的網址（例如 <span style="color:#dfa77c">你的名字.cardtaiwan.com</span>），含服務項目與服務區域。</div>
+    <div><b>分享中繼</b>客戶轉發時自動帶上你的名片，不需你申請任何帳號。</div>
+    <div><b>數據看板</b>（L2 以上）誰點過、點了什麼、回訪幾次 —— 白話呈現，不用看懂報表。</div>
+    <div><b>名單管理與跟進</b>（L3）客戶清單、興趣標籤、未回覆提醒、自動跟進訊息。</div>
+    <div><b>後續維護</b>換文案、換照片、改配色，含免費修改次數；網域可加購自有品牌網址。</div>
+  </div>
+
+  <h2>三種方案</h2>
+  <div class="tier">
+    <div class="card">
+      <div class="tag">L1</div>
+      <h3>名片</h3>
+      <div class="one">好看的電子名片，不跑版</div>
+      <ul>
+        <li>可滑動的六張卡片</li>
+        <li>專屬網址名片頁</li>
+        <li>一鍵轉發</li>
+      </ul>
+      <div class="price">NT$8,000 <span>一次性・無年費</span></div>
+    </div>
+    <div class="card hot">
+      <div class="tag">L2 ・ 最受歡迎</div>
+      <h3>名片 ＋ 追蹤</h3>
+      <div class="one">知道「誰對我有興趣」</div>
+      <ul>
+        <li>L1 全部功能</li>
+        <li>點擊事件記錄</li>
+        <li>訪客身分辨識</li>
+        <li>業務員數據看板</li>
+      </ul>
+      <div class="price">NT$12,000 <span>一次性・另加 NT$1,200／年</span></div>
+    </div>
+    <div class="card">
+      <div class="tag">L3</div>
+      <h3>名片 ＋ 追蹤 ＋ 跟進</h3>
+      <div class="one">不漏跟進，多成交</div>
+      <ul>
+        <li>L2 全部功能</li>
+        <li>客戶名單管理</li>
+        <li>興趣標籤分類</li>
+        <li>未回覆提醒・自動跟進訊息</li>
+      </ul>
+      <div class="price">NT$12,000 <span>一次性・另加 NT$399／月</span></div>
+    </div>
+  </div>
+
+  <h2>適合誰</h2>
+  <p class="who">
+    <b>房仲</b>・<b>保險</b>・<b>業務</b>・<b>顧問</b>・<b>設計師</b>・<b>工程行</b>・<b>店家</b>・<b>接案者</b><br>
+    任何「靠人認識人」的行業都適用。你越常遞名片，它越有用。
+  </p>
+
+  <div class="cta">
+    <p>想看自己的名片長什麼樣？</p>
+    <a href="https://www.instagram.com/cardtaiwan/">私訊 Instagram @cardtaiwan</a>
+  </div>
+
+  <div class="note">
+    ※ 已經傳出去的卡片不會自己更新 —— LINE 的卡片是一則訊息，不是網頁；改版後要重新傳一次，對方才會拿到新版。<br>
+    ※ 名片要在 LINE 裡面打開才有分享鈕，這是 LINE 的機制限制。
+  </div>
+
   <div class="foot">
-    任何「靠人認識人」的行業都適用。<br>
-    Instagram：<a href="https://www.instagram.com/cardtaiwan/">@cardtaiwan</a>
+    Instagram：<a href="https://www.instagram.com/cardtaiwan/">@cardtaiwan</a><br>
+    © CARDTAIWAN
   </div>
 </div>
 </body>
