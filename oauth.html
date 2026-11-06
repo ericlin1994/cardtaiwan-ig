@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cardtaiwan 授權完成</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:linear-gradient(160deg,#0e1a2b,#2a4670);color:#eef2f7;
+       font-family:-apple-system,"Segoe UI","Microsoft JhengHei",sans-serif;
+       display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{width:100%;max-width:640px;background:rgba(255,255,255,.06);border:1px solid rgba(223,167,124,.35);
+        border-radius:18px;padding:28px 26px}
+  h1{font-size:20px;margin:0 0 6px;color:#dfa77c;letter-spacing:.04em}
+  p{font-size:14px;line-height:1.7;color:#a8b6c8;margin:6px 0}
+  .val{margin:16px 0;padding:14px;border-radius:12px;background:#0b1524;border:1px solid #24374f;
+       font-family:ui-monospace,Consolas,monospace;font-size:13px;word-break:break-all;color:#8fe3a8;min-height:44px}
+  .bad{color:#ff9d9d}
+  button{width:100%;padding:13px;border:0;border-radius:11px;background:#c4835a;color:#fff;
+         font-size:15px;font-weight:600;cursor:pointer}
+  button:active{background:#a86a44}
+  .hint{font-size:12.5px;color:#7f8fa3;margin-top:14px}
+  .ok{color:#8fe3a8}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>CARDTAIWAN　授權結果</h1>
+  <div id="status"><p>讀取中…</p></div>
+  <div class="val" id="val">—</div>
+  <button id="copy" style="display:none">複製這串，貼回 Telegram</button>
+  <p class="hint" id="hint"></p>
+</div>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var hashq = new URLSearchParams((location.hash||"").replace(/^#/,""));
+  var code  = q.get("code") || hashq.get("code");
+  var state = q.get("state") || hashq.get("state");
+  var err   = q.get("error_description") || q.get("error_message") || q.get("error");
+  var st = document.getElementById("status");
+  var val = document.getElementById("val");
+  var btn = document.getElementById("copy");
+  var hint = document.getElementById("hint");
+
+  if (code) {
+    st.innerHTML = '<p class="ok">✅ 授權成功。把下面這串複製回 Telegram 給我。</p>';
+    val.textContent = code;
+    btn.style.display = "block";
+    hint.textContent = "（這是一次性的授權碼，用完就失效，不是密碼。）";
+    btn.onclick = function(){
+      navigator.clipboard.writeText(code).then(function(){
+        btn.textContent = "已複製 ✓";
+        setTimeout(function(){ btn.textContent = "複製這串，貼回 Telegram"; }, 1800);
+      }).catch(function(){
+        var r = document.createRange(); r.selectNodeContents(val);
+        var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "已選取，請長按複製";
+      });
+    };
+  } else if (err) {
+    st.innerHTML = '<p class="bad">❌ 授權沒有完成</p>';
+    val.textContent = err;
+    hint.textContent = "把這串錯誤訊息貼回 Telegram 給我。";
+  } else {
+    st.innerHTML = '<p>這裡是 cardtaiwan 的授權回呼頁。</p>';
+    val.textContent = "(沒有帶授權參數)";
+    hint.textContent = "如果你是直接打開這頁，那是正常的 —— 這頁只在 Meta 授權流程中會被用到。";
+  }
+  if (state) hint.textContent += "　state=" + state;
+})();
+</script>
+</body>
+</html>
